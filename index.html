@@ -1,0 +1,713 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>NMU RADIO | The Voice of NMU</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #111827;
+}
+
+/* HEADER */
+header {
+    background: #071a3d;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.25);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #d9a441;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #071a3d;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo h1 {
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: #d9a441;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #d9a441;
+}
+
+/* HERO */
+.hero {
+    min-height: 500px;
+    background: linear-gradient(135deg, #071a3d, #0d3577);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.live-badge {
+    display: inline-block;
+    background: #d9a441;
+    color: #071a3d;
+    padding: 8px 18px;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h2 {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.hero h2 span {
+    color: #d9a441;
+}
+
+.hero p {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+/* PLAYER */
+.player {
+    background: white;
+    width: 90%;
+    max-width: 850px;
+    margin: -70px auto 60px;
+    position: relative;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.player h3 {
+    color: #071a3d;
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.live-text {
+    color: #d9a441;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+audio {
+    width: 100%;
+}
+
+/* SECTIONS */
+section {
+    padding: 70px 7%;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-title h2 {
+    color: #071a3d;
+    font-size: 35px;
+}
+
+.section-title p {
+    margin-top: 10px;
+    color: #666;
+}
+
+/* NOW PLAYING */
+.now-playing {
+    background: #071a3d;
+    color: white;
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 1000px;
+    margin: auto;
+    text-align: center;
+}
+
+.now-playing small {
+    color: #d9a441;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.now-playing h2 {
+    margin-top: 12px;
+    font-size: 30px;
+}
+
+/* SCHEDULE */
+.schedule {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 180px;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.schedule-row:last-child {
+    border-bottom: none;
+}
+
+.schedule-time {
+    color: #d9a441;
+    font-weight: bold;
+}
+
+.schedule-name {
+    color: #071a3d;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.schedule-presenter {
+    color: #666;
+    text-align: right;
+}
+
+/* CARDS */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border-top: 4px solid #d9a441;
+}
+
+.card:hover {
+    transform: translateY(-7px);
+}
+
+.card h3 {
+    color: #071a3d;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ABOUT */
+.about {
+    background: white;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+}
+
+.about-content p {
+    line-height: 1.8;
+    color: #555;
+    font-size: 17px;
+}
+
+/* CONTACT */
+.contact {
+    background: #eef2f7;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #071a3d;
+    margin-bottom: 15px;
+}
+
+.contact p {
+    margin: 8px;
+    color: #555;
+}
+
+/* FOOTER */
+footer {
+    background: #071a3d;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+footer strong {
+    color: #d9a441;
+}
+
+footer p {
+    margin-top: 8px;
+    color: #ccd5e5;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    header {
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
+    }
+
+    .hero {
+        min-height: 430px;
+    }
+
+    .hero h2 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 17px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 50px 5%;
+    }
+
+    .player {
+        margin-top: -50px;
+        padding: 25px 18px;
+    }
+
+    .schedule-row {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .schedule-presenter {
+        text-align: left;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        <div class="logo-icon">🎙</div>
+
+        <div>
+            <h1>NMU <span>RADIO</span></h1>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#programmes">Programmes</a>
+        <a href="#news">News</a>
+        <a href="#about">About</a>
+    </nav>
+
+</header>
+
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="live-badge">
+            🔴 LIVE NOW
+        </div>
+
+        <h2>
+            The <span>Voice</span> of NMU
+        </h2>
+
+        <p>
+            Music • Campus Life • News • Entertainment
+        </p>
+
+        <p>
+            Your student radio. Your voice. Your community.
+        </p>
+
+    </div>
+
+</section>
+
+
+<div class="player">
+
+    <h3>🎧 Listen Live</h3>
+
+    <div class="live-text">
+        NMU RADIO IS LIVE
+    </div>
+
+    <audio controls>
+        <source src="http://10.188.82.88:8000/stream" type="audio/mpeg">
+        Your browser does not support the audio player.
+    </audio>
+
+</div>
+
+
+<section>
+
+    <div class="section-title">
+
+        <h2>Now Playing</h2>
+
+        <p>What's happening on NMU Radio right now</p>
+
+    </div>
+
+    <div class="now-playing">
+
+        <small>🔴 ON AIR</small>
+
+        <h2>NMU Radio Live Broadcast</h2>
+
+        <p style="margin-top:10px;">
+            Stay tuned for great music and campus updates.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PROGRAMME SCHEDULE -->
+<section id="programmes">
+
+    <div class="section-title">
+
+        <h2>Programme Schedule</h2>
+
+        <p>What's coming up on NMU Radio</p>
+
+    </div>
+
+    <div class="schedule">
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">07:00 AM</div>
+
+            <div class="schedule-name">
+                Morning Cruise
+            </div>
+
+            <div class="schedule-presenter">
+                Morning Team
+            </div>
+
+        </div>
+
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">10:00 AM</div>
+
+            <div class="schedule-name">
+                Campus Talk
+            </div>
+
+            <div class="schedule-presenter">
+                NMU Radio Team
+            </div>
+
+        </div>
+
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">01:00 PM</div>
+
+            <div class="schedule-name">
+                Music Hour
+            </div>
+
+            <div class="schedule-presenter">
+                DJ / Music Team
+            </div>
+
+        </div>
+
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">04:00 PM</div>
+
+            <div class="schedule-name">
+                Campus News
+            </div>
+
+            <div class="schedule-presenter">
+                News Team
+            </div>
+
+        </div>
+
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">06:00 PM</div>
+
+            <div class="schedule-name">
+                Evening Vibes
+            </div>
+
+            <div class="schedule-presenter">
+                Evening Team
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROGRAMMES -->
+<section>
+
+    <div class="section-title">
+
+        <h2>Our Programmes</h2>
+
+        <p>Something for every NMU student</p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>🌅 Morning Cruise</h3>
+
+            <p>
+                Start your day with music, motivation,
+                campus updates and positive vibes.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎙 Campus Talk</h3>
+
+            <p>
+                Student conversations, interviews,
+                campus issues and interesting discussions.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🌙 Evening Vibes</h3>
+
+            <p>
+                Relax with music, entertainment and
+                the latest happenings around campus.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- NEWS -->
+<section id="news">
+
+    <div class="section-title">
+
+        <h2>Campus News</h2>
+
+        <p>Stay connected with what's happening around NMU</p>
+
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>📰 NMU Updates</h3>
+
+            <p>
+                Important information and updates
+                for students.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎓 Student Life</h3>
+
+            <p>
+                Discover student activities, events,
+                opportunities and campus experiences.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎤 Interviews</h3>
+
+            <p>
+                Hear directly from students,
+                guests and interesting personalities.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+    <div class="section-title">
+
+        <h2>About NMU Radio</h2>
+
+    </div>
+
+    <div class="about-content">
+
+        <p>
+            NMU Radio is a student-led online radio platform
+            created to connect students through music, information,
+            entertainment, discussions and campus stories.
+        </p>
+
+        <br>
+
+        <p>
+            Our goal is simple — give students a voice,
+            keep the campus connected and create a platform
+            where ideas and creativity can be heard.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact">
+
+    <h2>Get Involved</h2>
+
+    <p>
+        Want to become a presenter, producer, reporter or
+        part of the NMU Radio team?
+    </p>
+
+    <p>
+        Stay tuned for more information.
+    </p>
+
+</section>
+
+
+<footer>
+
+    <h3>
+        NMU <strong>RADIO</strong>
+    </h3>
+
+    <p>
+        The Voice of NMU
+    </p>
+
+    <p>
+        © 2026 NMU Radio. All rights reserved.
+    </p>
+
+</footer>
+
+</body>
+</html>
+```
