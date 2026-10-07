@@ -4,272 +4,355 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NMU RADIO — The Voice of Nigerian Maritime University</title>
-
-<meta name="description" content="NMU Radio — The voice of Nigerian Maritime University. News, music, entertainment and campus updates.">
-
-<meta property="og:title" content="NMU RADIO — The Voice of Nigerian Maritime University">
-<meta property="og:description" content="News, music, entertainment and campus updates from NMU Radio.">
+<title>NMU RADIO | The Voice of NMU</title>
 
 <style>
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    background: #f4f8fc;
-    color: #102a43;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f6f9;
+    color: #111827;
 }
 
 /* HEADER */
 header {
-    background: linear-gradient(135deg, #003b73, #0077b6);
+    background: #071a3d;
     color: white;
-    padding: 18px 6%;
+    padding: 18px 7%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.25);
 }
 
 .logo {
-    font-size: 25px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #d9a441;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #071a3d;
+    font-size: 21px;
     font-weight: bold;
 }
 
+.logo h1 {
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+
 .logo span {
-    color: #ffd166;
+    color: #d9a441;
 }
 
 nav a {
     color: white;
     text-decoration: none;
-    margin-left: 20px;
-    font-size: 14px;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #d9a441;
 }
 
 /* HERO */
 .hero {
-    min-height: 480px;
-    background: linear-gradient(135deg, #003b73, #0096c7);
+    min-height: 500px;
+    background: linear-gradient(135deg, #071a3d, #0d3577);
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 50px 20px;
+    padding: 70px 20px;
 }
 
 .hero-content {
-    max-width: 700px;
-}
-
-.hero h1 {
-    font-size: 55px;
-    margin-bottom: 12px;
-}
-
-.hero h1 span {
-    color: #ffd166;
-}
-
-.hero p {
-    font-size: 18px;
-    margin-bottom: 30px;
-    opacity: 0.9;
+    max-width: 850px;
 }
 
 .live-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: #e63946;
+    display: inline-block;
+    background: #d9a441;
+    color: #071a3d;
     padding: 8px 18px;
     border-radius: 30px;
     font-weight: bold;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
-.dot {
-    width: 10px;
-    height: 10px;
+.hero h2 {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.hero h2 span {
+    color: #d9a441;
+}
+
+.hero p {
+    font-size: 20px;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+/* PLAYER */
+.player {
     background: white;
-    border-radius: 50%;
+    width: 90%;
+    max-width: 850px;
+    margin: -70px auto 60px;
+    position: relative;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.15);
+    text-align: center;
 }
 
-/* PLAY BUTTON */
-.play-button {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: none;
-    background: #ffd166;
-    color: #003b73;
-    font-size: 35px;
-    cursor: pointer;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    transition: 0.3s;
+.player h3 {
+    color: #071a3d;
+    font-size: 25px;
+    margin-bottom: 8px;
 }
 
-.play-button:hover {
-    transform: scale(1.08);
+.live-text {
+    color: #d9a441;
+    font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.play-text {
-    margin-top: 12px;
-    font-size: 14px;
+audio {
+    width: 100%;
 }
 
 /* SECTIONS */
 section {
-    padding: 65px 6%;
+    padding: 70px 7%;
 }
 
 .section-title {
     text-align: center;
-    margin-bottom: 35px;
+    margin-bottom: 40px;
 }
 
 .section-title h2 {
-    font-size: 32px;
-    color: #003b73;
+    color: #071a3d;
+    font-size: 35px;
 }
 
 .section-title p {
-    margin-top: 8px;
-    color: #607d8b;
+    margin-top: 10px;
+    color: #666;
 }
 
 /* NOW PLAYING */
 .now-playing {
-    background: white;
-    border-radius: 18px;
-    padding: 30px;
-    max-width: 800px;
+    background: #071a3d;
+    color: white;
+    border-radius: 20px;
+    padding: 35px;
+    max-width: 1000px;
     margin: auto;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     text-align: center;
 }
 
-.now-playing h3 {
-    color: #0077b6;
-    margin-bottom: 10px;
-}
-
-.song-title {
-    font-size: 25px;
+.now-playing small {
+    color: #d9a441;
     font-weight: bold;
-    margin-bottom: 5px;
+    letter-spacing: 2px;
 }
 
-.artist {
-    color: #607d8b;
+.now-playing h2 {
+    margin-top: 12px;
+    font-size: 30px;
+}
+
+/* SCHEDULE */
+.schedule {
+    max-width: 1000px;
+    margin: auto;
+    background: white;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.schedule-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 180px;
+    align-items: center;
+    gap: 20px;
+    padding: 22px 25px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.schedule-row:last-child {
+    border-bottom: none;
+}
+
+.schedule-time {
+    color: #d9a441;
+    font-weight: bold;
+}
+
+.schedule-name {
+    color: #071a3d;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.schedule-presenter {
+    color: #666;
+    text-align: right;
 }
 
 /* CARDS */
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    gap: 22px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
 
 .card {
     background: white;
-    padding: 25px;
-    border-radius: 16px;
-    box-shadow: 0 7px 20px rgba(0,0,0,0.07);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+    border-top: 4px solid #d9a441;
+}
+
+.card:hover {
+    transform: translateY(-7px);
 }
 
 .card h3 {
-    color: #003b73;
-    margin-bottom: 10px;
+    color: #071a3d;
+    margin-bottom: 12px;
 }
 
 .card p {
-    color: #607d8b;
+    color: #666;
     line-height: 1.6;
-}
-
-/* SCHEDULE */
-.schedule {
-    background: #003b73;
-    color: white;
-}
-
-.schedule .section-title h2 {
-    color: white;
-}
-
-.schedule .section-title p {
-    color: #cde7f7;
-}
-
-.program {
-    background: rgba(255,255,255,0.1);
-    padding: 18px;
-    border-radius: 12px;
-    margin-bottom: 12px;
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.program strong {
-    color: #ffd166;
 }
 
 /* ABOUT */
 .about {
-    max-width: 850px;
+    background: white;
+}
+
+.about-content {
+    max-width: 900px;
     margin: auto;
     text-align: center;
+}
+
+.about-content p {
     line-height: 1.8;
-    color: #607d8b;
+    color: #555;
+    font-size: 17px;
+}
+
+/* CONTACT */
+.contact {
+    background: #eef2f7;
+    text-align: center;
+}
+
+.contact h2 {
+    color: #071a3d;
+    margin-bottom: 15px;
+}
+
+.contact p {
+    margin: 8px;
+    color: #555;
 }
 
 /* FOOTER */
 footer {
-    background: #001f3f;
+    background: #071a3d;
     color: white;
     text-align: center;
     padding: 30px 20px;
 }
 
-footer span {
-    color: #ffd166;
+footer strong {
+    color: #d9a441;
+}
+
+footer p {
+    margin-top: 8px;
+    color: #ccd5e5;
 }
 
 /* MOBILE */
-@media (max-width: 650px) {
+@media (max-width: 768px) {
 
     header {
-        padding: 16px 20px;
+        padding: 15px 5%;
+        flex-direction: column;
+        gap: 15px;
     }
 
-    nav {
-        display: none;
+    nav a {
+        margin: 0 8px;
+        font-size: 14px;
     }
 
-    .hero h1 {
-        font-size: 42px;
+    .hero {
+        min-height: 430px;
+    }
+
+    .hero h2 {
+        font-size: 38px;
     }
 
     .hero p {
-        font-size: 16px;
+        font-size: 17px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
     }
 
     section {
-        padding: 50px 20px;
+        padding: 50px 5%;
     }
 
-    .program {
-        flex-direction: column;
-        gap: 6px;
+    .player {
+        margin-top: -50px;
+        padding: 25px 18px;
+    }
+
+    .schedule-row {
+        grid-template-columns: 1fr;
+        gap: 7px;
+    }
+
+    .schedule-presenter {
+        text-align: left;
     }
 }
 </style>
@@ -278,69 +361,194 @@ footer span {
 <body>
 
 <header>
+
     <div class="logo">
-        NMU <span>RADIO</span>
+
+        <div class="logo-icon">🎙</div>
+
+        <div>
+            <h1>NMU <span>RADIO</span></h1>
+        </div>
+
     </div>
 
     <nav>
         <a href="#home">Home</a>
-        <a href="#radio">Live Radio</a>
-        <a href="#programs">Programs</a>
+        <a href="#programmes">Programmes</a>
+        <a href="#news">News</a>
         <a href="#about">About</a>
     </nav>
+
 </header>
 
 
-<!-- HERO -->
-
 <section class="hero" id="home">
+
     <div class="hero-content">
 
         <div class="live-badge">
-            <div class="dot"></div>
-            ON AIR
+            🔴 LIVE NOW
         </div>
 
-        <h1>
-            NMU <span>RADIO</span>
-        </h1>
+        <h2>
+            The <span>Voice</span> of NMU
+        </h2>
 
         <p>
-            The voice of Nigerian Maritime University.
-            Connecting students, staff and the NMU community.
+            Music • Campus Life • News • Entertainment
         </p>
 
-        <button class="play-button" onclick="toggleRadio()" id="playBtn">
-            ▶
-        </button>
-
-        <div class="play-text" id="playText">
-            Tap to listen live
-        </div>
+        <p>
+            Your student radio. Your voice. Your community.
+        </p>
 
     </div>
+
 </section>
 
 
-<!-- NOW PLAYING -->
+<div class="player">
 
-<section id="radio">
+    <h3>🎧 Listen Live</h3>
+
+    <div class="live-text">
+        NMU RADIO IS LIVE
+    </div>
+
+    <!-- PUBLIC NMU RADIO STREAM -->
+    <audio controls>
+
+        <source
+            src="https://harbour-gmbh-ext-tsunami.trycloudflare.com/stream"
+            type="audio/mpeg">
+
+        Your browser does not support the audio player.
+
+    </audio>
+
+</div>
+
+
+<section>
 
     <div class="section-title">
+
         <h2>Now Playing</h2>
-        <p>What's happening on NMU Radio</p>
+
+        <p>What's happening on NMU Radio right now</p>
+
     </div>
 
     <div class="now-playing">
 
-        <h3>🎙️ NMU RADIO LIVE</h3>
+        <small>🔴 ON AIR</small>
 
-        <div class="song-title" id="nowPlaying">
-            NMU Radio Live
+        <h2>NMU Radio Live Broadcast</h2>
+
+        <p style="margin-top:10px;">
+            Stay tuned for great music and campus updates.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- PROGRAMME SCHEDULE -->
+<section id="programmes">
+
+    <div class="section-title">
+
+        <h2>Programme Schedule</h2>
+
+        <p>What's coming up on NMU Radio</p>
+
+    </div>
+
+    <div class="schedule">
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">
+                07:00 AM
+            </div>
+
+            <div class="schedule-name">
+                Morning Cruise
+            </div>
+
+            <div class="schedule-presenter">
+                Morning Team
+            </div>
+
         </div>
 
-        <div class="artist">
-            Broadcasting from Nigerian Maritime University
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">
+                10:00 AM
+            </div>
+
+            <div class="schedule-name">
+                Campus Talk
+            </div>
+
+            <div class="schedule-presenter">
+                NMU Radio Team
+            </div>
+
+        </div>
+
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">
+                01:00 PM
+            </div>
+
+            <div class="schedule-name">
+                Music Hour
+            </div>
+
+            <div class="schedule-presenter">
+                DJ / Music Team
+            </div>
+
+        </div>
+
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">
+                04:00 PM
+            </div>
+
+            <div class="schedule-name">
+                Campus News
+            </div>
+
+            <div class="schedule-presenter">
+                News Team
+            </div>
+
+        </div>
+
+
+        <div class="schedule-row">
+
+            <div class="schedule-time">
+                06:00 PM
+            </div>
+
+            <div class="schedule-name">
+                Evening Vibes
+            </div>
+
+            <div class="schedule-presenter">
+                Evening Team
+            </div>
+
         </div>
 
     </div>
@@ -348,47 +556,52 @@ footer span {
 </section>
 
 
-<!-- PROGRAMS -->
-
-<section id="programs">
+<!-- PROGRAMMES -->
+<section>
 
     <div class="section-title">
-        <h2>Our Programs</h2>
+
+        <h2>Our Programmes</h2>
+
         <p>Something for every NMU student</p>
+
     </div>
 
     <div class="cards">
 
         <div class="card">
-            <h3>🎙️ Morning Drive</h3>
+
+            <h3>🌅 Morning Cruise</h3>
+
             <p>
-                Start your day with music, campus updates,
-                entertainment and important announcements.
+                Start your day with music, motivation,
+                campus updates and positive vibes.
             </p>
+
         </div>
 
-        <div class="card">
-            <h3>🎵 Campus Vibes</h3>
-            <p>
-                Music, student conversations, trends and
-                everything happening around campus.
-            </p>
-        </div>
 
         <div class="card">
-            <h3>📰 NMU News</h3>
+
+            <h3>🎙 Campus Talk</h3>
+
             <p>
-                Stay informed about university activities,
-                events and important student information.
+                Student conversations, interviews,
+                campus issues and interesting discussions.
             </p>
+
         </div>
 
+
         <div class="card">
-            <h3>🌙 Night Show</h3>
+
+            <h3>🌙 Evening Vibes</h3>
+
             <p>
-                Relax with music, conversations and
-                interesting stories from the NMU community.
+                Relax with music, entertainment and
+                the latest happenings around campus.
             </p>
+
         </div>
 
     </div>
@@ -396,60 +609,82 @@ footer span {
 </section>
 
 
-<!-- SCHEDULE -->
-
-<section class="schedule">
+<!-- NEWS -->
+<section id="news">
 
     <div class="section-title">
-        <h2>Program Schedule</h2>
-        <p>Check out what's coming up</p>
+
+        <h2>Campus News</h2>
+
+        <p>Stay connected with what's happening around NMU</p>
+
     </div>
 
-    <div class="program">
-        <span>Morning Drive</span>
-        <strong>7:00 AM</strong>
-    </div>
+    <div class="cards">
 
-    <div class="program">
-        <span>Campus Vibes</span>
-        <strong>10:00 AM</strong>
-    </div>
+        <div class="card">
 
-    <div class="program">
-        <span>NMU News</span>
-        <strong>1:00 PM</strong>
-    </div>
+            <h3>📰 NMU Updates</h3>
 
-    <div class="program">
-        <span>Night Show</span>
-        <strong>7:00 PM</strong>
+            <p>
+                Important information and updates
+                for students.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎓 Student Life</h3>
+
+            <p>
+                Discover student activities, events,
+                opportunities and campus experiences.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎤 Interviews</h3>
+
+            <p>
+                Hear directly from students,
+                guests and interesting personalities.
+            </p>
+
+        </div>
+
     </div>
 
 </section>
 
 
 <!-- ABOUT -->
-
-<section id="about">
+<section class="about" id="about">
 
     <div class="section-title">
+
         <h2>About NMU Radio</h2>
+
     </div>
 
-    <div class="about">
+    <div class="about-content">
 
         <p>
-            NMU Radio is a campus-focused platform created to
-            inform, entertain and connect the Nigerian Maritime
-            University community.
+            NMU Radio is a student-led online radio platform
+            created to connect students through music, information,
+            entertainment, discussions and campus stories.
         </p>
 
         <br>
 
         <p>
-            From campus news and student discussions to music,
-            entertainment and special broadcasts, NMU Radio
-            gives the university community a voice.
+            Our goal is simple — give students a voice,
+            keep the campus connected and create a platform
+            where ideas and creativity can be heard.
         </p>
 
     </div>
@@ -457,49 +692,38 @@ footer span {
 </section>
 
 
-<!-- FOOTER -->
+<!-- CONTACT -->
+<section class="contact">
+
+    <h2>Get Involved</h2>
+
+    <p>
+        Want to become a presenter, producer, reporter or
+        part of the NMU Radio team?
+    </p>
+
+    <p>
+        Stay tuned for more information.
+    </p>
+
+</section>
+
 
 <footer>
 
+    <h3>
+        NMU <strong>RADIO</strong>
+    </h3>
+
     <p>
-        © 2026 <span>NMU Radio</span>
+        The Voice of NMU
     </p>
 
     <p>
-        Nigerian Maritime University
+        © 2026 NMU Radio. All rights reserved.
     </p>
 
 </footer>
-
-
-<script>
-
-let playing = false;
-
-function toggleRadio() {
-
-    const button = document.getElementById("playBtn");
-    const text = document.getElementById("playText");
-
-    if (!playing) {
-
-        playing = true;
-
-        button.innerHTML = "❚❚";
-        text.innerHTML = "Radio is playing";
-
-    } else {
-
-        playing = false;
-
-        button.innerHTML = "▶";
-        text.innerHTML = "Tap to listen live";
-
-    }
-
-}
-
-</script>
 
 </body>
 </html>
